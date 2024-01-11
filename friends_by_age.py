@@ -10,7 +10,7 @@ def get_age_and_friends(x):
 conf = SparkConf().setMaster('local').setAppName("ageAndFriends")
 sc = SparkContext(conf=conf)
 
-rdd = sc.textFile('/users/baekjihoon/spark/fakefriends.csv')
+rdd = sc.textFile('./sparkCourse/fakefriends.csv')
 ageAndFriends = rdd.map(get_age_and_friends)
 ageAndFriendsWithKey = (ageAndFriends
                         .mapValues(lambda x: (x, 1))
